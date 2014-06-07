@@ -1,0 +1,11 @@
+{
+	"name": "suramons-datatables-plugin-collection",
+	"version": "0.1.0",
+	"main": [
+		"constant-row-height.js"
+	],
+	"dependencies": {
+		"jquery": ">=1.9.0",
+		"datatables": ">=1.10.0"
+	}
+} 
