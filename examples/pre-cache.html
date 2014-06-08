@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.datatables.net/1.10.0/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<table id="example" class="display" cellspacing="0" width="100%">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Position</th>
+			<th>Office</th>
+			<th>Extn.</th>
+			<th>Start date</th>
+			<th>Salary</th>
+		</tr>
+	</thead>
+
+	<tfoot>
+		<tr>
+			<th>Name</th>
+			<th>Position</th>
+			<th>Office</th>
+			<th>Extn.</th>
+			<th>Start date</th>
+			<th>Salary</th>
+		</tr>
+	</tfoot>
+</table>
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mockjax/1.5.3/jquery.mockjax.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.0/js/jquery.dataTables.js" type="text/javascript"></script>
+<script src="../js/pre-cache.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+jQuery(function($) {
+	$.mockjax({
+		url: /.*/,
+		response: function(settings) {
+			var data = settings.data;
+			var response = {
+				draw: data.draw,
+				recordsTotal: 100,
+				recordsFiltered: 100,
+				data: []
+			}
+			for(var i = 0; i < data.length; i++) {
+				response.data.push([
+					"col1-row" + (i + data.start),
+					"col2-row" + (i + data.start),
+					"col3-row" + (i + data.start),
+					"col4-row" + (i + data.start),
+					"col5-row" + (i + data.start),
+					"col6-row" + (i + data.start)
+				]);
+			}
+			this.responseText = JSON.stringify(response);
+		}
+	});
+
+    $("#example").dataTable( {
+        "serverSide": true,
+		"responseTime": 500,
+		"preCache": true,
+        "ajax": "json.cgi"
+    } );
+});
+</script>
+
+</body>
+</html> 

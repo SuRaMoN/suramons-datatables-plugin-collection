@@ -1,0 +1,14 @@
+{
+	"name": "suramon/suramons-datatables-plugin-collection",
+	"description": "Collection of datatables plugins",
+	"type": "library",
+	"homepage": "https://github.com/SuRaMoN/suramons-datatables-plugin-collection",
+	"license": "DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE",
+	"authors": [
+		{
+			"name": "SuRaMoN",
+			"homepage": "https://github.com/SuRaMoN"
+		}
+	]
+}
+
